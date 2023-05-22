@@ -1,4 +1,4 @@
-from controller import saudacao, create, relatoriohospede
+from controller import saudacao, create, relatoriohospedes, relatorioHospede, FazerCheckout
 
 def menu():
     menu = 1
@@ -24,15 +24,17 @@ def menu():
                 create(pessoa)
 
             case 2:
-                relatoriohospede()
+                relatoriohospedes()
 
             case 3:
-                print("Leitura Hóspede!")
+                pessoa = input("Digite o nome que deseja: ")
+                relatorioHospede(pessoa)
         
             case 4:
-                print("Deletar!")
+                pessoa = input("Digite O nome da pessoa que deseja Deletar: ")
+                FazerCheckout(pessoa)
         
-        menu = int(input("Você deseja sair?\n1 - Para Continuar\n2 - Para Sair\n"))
+        menu = int(input("Você deseja sair?\n1 - Para Continuar\n0 - Para Sair\n"))
 
 
 
