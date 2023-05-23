@@ -1,51 +1,55 @@
 from datetime import datetime
 
 def saudacao():
+
     hora = datetime.now(tz=None)
-    if hora.hour >= 5 and hora.hour < 12:
-        print("Bom Dia")
-
-    elif hora.hour >= 12 and hora.hour < 18:
-        print("Boa Tarde!")
     
+    if hora.hour >= 5 and hora.hour < 12:
+        print("Bom dia!")
+    
+    elif hora.hour >= 12 and hora.hour < 18:
+        print("Boa tarde!")
+
     else:
-        print("Boa Noite!")
+        print("Boa noite!")
 
-def create(cliente):    
-    with open ('hotel.txt', 'a') as arquivo:
-        arquivo.write(str(cliente)+ '\n')
+def Create(var):
 
-def relatoriohospedes():
+    with open('hotel.txt', 'a') as arquivo:
+        arquivo.write(str(var)+'\n')
+
+def relatorioHospedes():
     with open('hotel.txt', 'r') as arquivo:
         print(arquivo.read())
 
-def relatorioHospede(Clientefind):
+def relatorioHospede(Cliente):
     
     index = 0
 
     flag = 0
 
-    arquivo = open("hotel.txt", "r")
+    
+
+    arquivo = open("hotel.txt", 'r')
 
     for line in arquivo:
 
         index += 1
 
-        if Clientefind == eval(line)["Nome"]:
+        if Cliente == eval(line)["Nome"]:
             print(line)
             flag = 1
-    
     if flag == 0:
-        print("Cliente não Encontrado!")
+        print("Cliente nao encontrado")
 
 def FazerCheckout(cliente):
     index = 0 
     flag = 0
-
+    
     arquivo = open("hotel.txt", "r")
 
     for line in arquivo:
-        index += 1
+        index +=1
 
         if cliente == eval(line)["Nome"]:
 
@@ -73,6 +77,6 @@ def FazerCheckout(cliente):
 
                         posicao += 1
             print("Pessoa Deletada")
-
+        
         except:
             print("Erro Sistema")
